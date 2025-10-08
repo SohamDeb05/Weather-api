@@ -25,6 +25,8 @@
             min-height: 100%;
             color: #333;
             overflow-x: hidden;
+            font-weight: 900;
+            font-size: 1.2em;
         }
 
         .container {
@@ -292,7 +294,7 @@
         }
 
         .state-title {
-            color: white;
+            color: #2c3e50;
             font-size: 1rem;
             font-weight: 600;
             margin-bottom: 12px;
@@ -469,18 +471,18 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>🌤️ मौसम - Mausam</h1>
-            <p>भारत का विश्वसनीय मौसम साथी | Your trusted weather companion for India</p>
+            <h1>🌤️ Mausam Weather</h1>
+            <p>Your trusted weather companion for India</p>
         </div>
 
         <div class="search-section">
             <div class="search-container">
-                <input type="text" class="search-input" id="cityInput" placeholder="शहर का नाम दर्ज करें | Enter city name (e.g., Mumbai, Delhi, Bangalore)">
-                <button class="search-btn" onclick="searchWeather()">🔍 मौसम देखें</button>
+                <input type="text" class="search-input" id="cityInput" placeholder="Enter city name (e.g., Mumbai, Delhi, Bangalore)">
+                <button class="search-btn" onclick="searchWeather()">🔍 Get Weather</button>
             </div>
             
             <div class="state-section">
-                <div class="state-title">🏙️ प्रमुख शहर | Major Cities</div>
+                <h2 class="state-title">🏙️ Major Cities</h2>
                 <div class="quick-cities">
                     <div class="city-btn" onclick="quickSearch('Mumbai')">🏙️ Mumbai</div>
                     <div class="city-btn" onclick="quickSearch('Delhi')">🏛️ Delhi</div>
@@ -494,7 +496,7 @@
             </div>
 
             <div class="state-section">
-                <div class="state-title">🏔️ उत्तरी भारत | North India</div>
+                <h3 class="state-title">🏔️ North India</h3>
                 <div class="quick-cities">
                     <div class="city-btn" onclick="quickSearch('Chandigarh')">Chandigarh</div>
                     <div class="city-btn" onclick="quickSearch('Jaipur')">Jaipur</div>
@@ -506,7 +508,7 @@
             </div>
 
             <div class="state-section">
-                <div class="state-title">🌴 दक्षिणी भारत | South India</div>
+                <h3 class="state-title">🌴 South India</h3>
                 <div class="quick-cities">
                     <div class="city-btn" onclick="quickSearch('Kochi')">Kochi</div>
                     <div class="city-btn" onclick="quickSearch('Coimbatore')">Coimbatore</div>
@@ -520,7 +522,7 @@
 
         <div class="loading" id="loading">
             <div class="loading-spinner"></div>
-            <p>मौसम की जानकारी प्राप्त की जा रही है... | Fetching weather data...</p>
+            <p>Fetching weather data...</p>
         </div>
 
         <div class="error-message" id="errorMessage"></div>
@@ -537,27 +539,27 @@
 
             <div class="weather-details">
                 <div class="detail-card">
-                    <h4>महसूस होता है | Feels Like</h4>
+                    <h4>Feels Like</h4>
                     <div class="value" id="feelsLike">--°C</div>
                 </div>
                 <div class="detail-card">
-                    <h4>नमी | Humidity</h4>
+                    <h4>Humidity</h4>
                     <div class="value" id="humidity">--%</div>
                 </div>
                 <div class="detail-card">
-                    <h4>हवा की गति | Wind Speed</h4>
+                    <h4>Wind Speed</h4>
                     <div class="value" id="windSpeed">-- km/h</div>
                 </div>
                 <div class="detail-card">
-                    <h4>वायुदाब | Pressure</h4>
+                    <h4>Pressure</h4>
                     <div class="value" id="pressure">-- hPa</div>
                 </div>
                 <div class="detail-card">
-                    <h4>दृश्यता | Visibility</h4>
+                    <h4>Visibility</h4>
                     <div class="value" id="visibility">-- km</div>
                 </div>
                 <div class="detail-card">
-                    <h4>UV सूचकांक | UV Index</h4>
+                    <h4>UV Index</h4>
                     <div class="value" id="uvIndex">--</div>
                 </div>
             </div>
@@ -736,7 +738,7 @@
                 displayWeather(weatherData);
                 
             } catch (error) {
-                showError(`${cityName} के लिए मौसम की जानकारी प्राप्त नहीं हो सकी। कृपया शहर का नाम जांचें और पुनः प्रयास करें। | Unable to fetch weather data for ${cityName}. Please check the city name and try again.`);
+                showError(`Unable to fetch weather data for ${cityName}. Please check the city name and try again.`);
             }
         }
 
@@ -745,7 +747,7 @@
             const cityName = cityInput.value.trim();
             
             if (!cityName) {
-                showError('कृपया शहर का नाम दर्ज करें | Please enter a city name');
+                showError('Please enter a city name');
                 return;
             }
             
@@ -769,5 +771,5 @@
             quickSearch('Mumbai');
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98b4bc04a329405b',t:'MTc1OTkxNzAzMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98b4cc10c464fcad',t:'MTc1OTkxNzY4OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
